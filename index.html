@@ -1,113 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Invitación</title>
 
-    <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    body {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
 
-    <title>Invitación Sakura</title>
+    /* Contenedor que limita el tamaño para que no se estire */
+    #contenedorPrincipal {
+      width: 100%;
+      max-width: 420px; /* Ancho típico de celular */
+      height: 100vh;
+      max-height: 900px; /* Alto típico */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    /* Aquí va tu abanico/imagen de fondo */
+    #abanico {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      cursor: pointer;
+    }
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    #textoInvitacion {
+      position: absolute;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      /* Aquí pon los estilos de tu texto encima del abanico */
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Parisienne&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-          href="style.css">
+    #mensajeAbrir {
+      color: #fff;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      animation: parpadeo 1.5s infinite;
+    }
 
+    @keyframes parpadeo {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    audio {
+      display: none; /* Lo ocultamos, se controla con JS */
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="escena">
+  <div id="contenedorPrincipal">
 
     <!--=========================
-        TEXTO INICIAL
+        ABANICO - Pega aquí tu imagen
     ==========================-->
+    <img id="abanico" src="imagenes/abanico.png" alt="Abanico">
 
-    <div id="pantallaInicio" class="titulo">
-
-        <h1>Canzu</h1>
-
-        <p>
-
-            Te invita a compartir
-            un momento especial
-            en su cumpleaños
-
-        </p>
-
+    <!--=========================
+        TEXTO SOBRE EL ABANICO
+    ==========================-->
+    <div id="textoInvitacion">
+      <!-- Aquí va tu texto de la invitación -->
     </div>
 
+  </div>
 
-    <!--=========================
-        ESCENARIO DEL ABANICO
-    ==========================-->
+  <!--=========================
+      MENSAJE INFERIOR
+  ==========================-->
+  <p id="mensajeAbrir">
+    Toca el abanico para abrir la invitación
+  </p>
 
-    <div class="escenario">
+  <!--=========================
+      AUDIO
+  ==========================-->
+  <audio id="musica" loop>
+    <source src="audio/musica.mp3" type="audio/mpeg">
+  </audio>
 
-        <div class="abanico-container">
-          
-          <canvas id="petalos"></canvas>
+  <script>
+    // Para que el audio suene al tocar el abanico
+    const abanico = document.getElementById('abanico');
+    const musica = document.getElementById('musica');
+    const mensaje = document.getElementById('mensajeAbrir');
 
-            <img
-
-                id="abanico"
-
-                src="img/frame1.png"
-
-                alt="Abanico Sakura"
-
-            >
-
-
-            <!--=========================
-                TEXTO SOBRE EL ABANICO
-            ==========================-->
-
-            <div id="textoInvitacion">
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!--=========================
-        MENSAJE INFERIOR
-    ==========================-->
-
-    <p id="mensajeAbrir">
-
-        Toca el abanico para abrir la invitación
-
-    </p>
-
-</div>
-
-
-<!--=========================
-        AUDIO
-==========================-->
-
-<audio id="musica">
-
-    <source
-
-        src="audio/musica.mp3"
-
-        type="audio/mpeg">
-
-</audio>
-
-
-<script src="script.js"></script>
+    abanico.addEventListener('click', () => {
+      musica.play();
+      mensaje.style.display = 'none'; // Oculta el "Toca el abanico"
+      // Aquí puedes agregar la animación para "abrir" la invitación
+    });
+  </script>
 
 </body>
-
 </html>
