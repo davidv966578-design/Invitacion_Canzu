@@ -16,16 +16,17 @@ const ctx = canvas.getContext("2d");
 ==========================================*/
 
 const frames = [
-"imagenes/frame1.png", // CAMBIO: unifiqué a imagenes/
-"imagenes/frame2.png",
-"imagenes/frame3.png",
-"imagenes/frame4.png",
-"imagenes/frame5.png",
-"imagenes/frame6.png",
-"imagenes/frame7.png",
-"imagenes/frame8.png",
-"imagenes/frame9.png",
-"imagenes/frame10.png"
+"img/frame1.png",
+"img/frame2.png",
+"img/frame3.png",
+"img/frame4.png",
+"img/frame5.png",
+"img/frame6.png",
+"img/frame7.png",
+"img/frame8.png",
+"img/frame9.png",
+"img/frame10.png"
+      
 ];
 
 const tiempos = [
