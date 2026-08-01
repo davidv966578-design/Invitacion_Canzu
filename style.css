@@ -1,40 +1,104 @@
-/* style.css — estilos para la invitación */
-:root{
-  --bg:#fff8f6;
-  --card:#fff;
-  --accent:#e97e9e;
-  --muted:#666;
-  --glass: rgba(255,255,255,0.7);
+=====================================*/
+
+#mensajeAbrir{
+
+    margin-top:-70px;
+
+    color:#b96b89;
+
+    font-size:18px;
+
+    transition:opacity 1s ease;
+
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:#222;
-  -webkit-font-smoothing:antialiased;
+/*====================================
+        OCULTAR
+=====================================*/
+
+.ocultar{
+
+    opacity:0;
+
 }
-.container{max-width:900px;margin:0 auto;padding:16px}
-.hero{position:relative;border-radius:12px;overflow:hidden;margin-bottom:18px}
-.hero-bg{width:100%;height:220px;object-fit:cover;display:block;filter:blur(2px) brightness(0.8)}
-.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,0.35)}
-.logo{width:96px;height:96px;object-fit:contain;margin-bottom:8px}
-.hero h1{margin:0;font-size:clamp(20px,4vw,36px)}
-.subtitle{margin:6px 0 0}
 
-.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
-.card h2{margin-top:0}
-.card ul{padding-left:1.2rem;color:var(--muted)}
-.images{margin:12px 0}
-.small-img{width:140px}
-.actions{display:flex;gap:10px;margin-top:12px}
-.btn{padding:10px 14px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:transparent;cursor:pointer}
-.btn.primary{background:var(--accent);color:#fff;border:none}
-.note{font-size:0.9rem;color:var(--muted);margin-top:12px}
-.footer{text-align:center;color:var(--muted);margin-top:18px}
+/*====================================
+      RESPONSIVE
+=====================================*/
 
-@media (max-width:520px){
-  .hero-bg{height:160px}
-  .small-img{width:100px}
+@media(max-width:430px){
+
+    .abanico-container{
+
+        width:92%;
+
+        transform:translateY(-110px);
+
+    }
+
+    .titulo h1{
+
+        font-size:42px;
+
+    }
+
+    .titulo p{
+
+        width:100%;
+
+        font-size:17px;
+
+    }
+
+    #textoInvitacion{
+
+        width:50%;
+
+        top:34%;
+
+    }
+
+    #textoInvitacion h2{
+
+        font-size:22px;
+
+    }
+
+    #textoInvitacion p{
+
+        font-size:14px;
+
+    }
+
+}
+/*=========================
+        PETALOS
+==========================*/
+
+#petalos{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    z-index:3;
+
+    pointer-events:none;
+
+}
+
+/* el abanico queda debajo */
+
+#abanico{
+
+    position:relative;
+
+    z-index:2;
+
 }
