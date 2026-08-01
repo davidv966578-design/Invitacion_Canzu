@@ -1,47 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Invitación — Sakura</title>
-  <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Invitación Sakura</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
 <body>
-  <main class="container">
-    <header class="hero">
-      <img src="img/fondo.jpg" alt="Fondo Sakura" class="hero-bg">
-      <div class="hero-content">
-        <img src="img/sakura.png" alt="Sakura" class="logo">
-        <h1>Te invito a mi cumpleaños</h1>
-        <p class="subtitle">Celebración bajo flores de sakura</p>
-      </div>
-    </header>
 
-    <section class="card">
-      <h2>Detalles</h2>
-      <ul>
-        <li><strong>Fecha:</strong> 20 de agosto de 2026</li>
-        <li><strong>Hora:</strong> 18:00</li>
-        <li><strong>Lugar:</strong> Jardín Sakura — Calle Primavera 123</li>
-      </ul>
+<div class="escena">
 
-      <div class="images">
-        <img src="img/abanico.png" alt="Abanico" class="small-img">
-      </div>
+    <!--=========================
+        TEXTO INICIAL
+    ==========================-->
 
-      <div class="actions">
-        <button id="rsvp-yes" class="btn primary">Sí, asistiré</button>
-        <button id="rsvp-no" class="btn">No podré ir</button>
-      </div>
+    <div id="pantallaInicio" class="titulo">
 
-      <p class="note">Pulsa "Sí, asistiré" para confirmar. Puedes reemplazar las imágenes en la carpeta <code>img/</code>.</p>
-    </section>
+        <h1>Canzu</h1>
 
-    <footer class="footer">
-      <p>Creado con ❤️ — Invitacion_Sakura</p>
-    </footer>
-  </main>
+        <p>
 
-  <script src="script.js"></script>
+            Te invita a compartir
+            un momento especial
+            en su cumpleaños
+
+        </p>
+
+    </div>
+
+
+    <!--=========================
+        ESCENARIO DEL ABANICO
+    ==========================-->
+
+    <div class="escenario">
+
+        <div class="abanico-container">
+          
+          <canvas id="petalos"></canvas>
+
+            <img
+
+                id="abanico"
+
+                src="img/frame1.png"
+
+                alt="Abanico Sakura"
+
+            >
+
+
+            <!--=========================
+                TEXTO SOBRE EL ABANICO
+            ==========================-->
+
+            <div id="textoInvitacion">
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--=========================
+        MENSAJE INFERIOR
+    ==========================-->
+
+    <p id="mensajeAbrir">
+
+        Toca el abanico para abrir la invitación
+
+    </p>
+
+</div>
+
+
+<!--=========================
+        AUDIO
+==========================-->
+
+<audio id="musica">
+
+    <source
+
+        src="audio/musica.mp3"
+
+        type="audio/mpeg">
+
+</audio>
+
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
