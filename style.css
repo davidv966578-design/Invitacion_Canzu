@@ -13,17 +13,17 @@
 =====================================*/
 
 body{
-
     background:linear-gradient(
         to bottom,
         #fffdfd,
         #ffeef4
     );
-
     font-family:Georgia, serif;
-
     overflow:hidden;
-
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
 /*====================================
@@ -31,57 +31,39 @@ body{
 =====================================*/
 
 .escena{
-
     width:100%;
-
+    max-width: 430px; /* CLAVE: Limita para que no se estire en PC/tablet */
     height:100vh;
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
     text-align:center;
-
 }
 
 /*====================================
-        TEXTO INICIAL
+        TITULO
 =====================================*/
 
 .titulo{
-
     transition:opacity 1s ease;
-
 }
 
 .titulo h1{
-
-font-family:'Parisienne', serif;
-
-font-size:200px;
-
-color:#c96b91;
-
-font-weight:bold;
-
-margin-bottom:1px;
-
+    font-family:'Parisienne', serif;
+    font-size:42px; /* Bajé el de 200px. 200px rompe en celu */
+    color:#c96b91;
+    font-weight:bold;
+    margin-bottom:1px;
 }
 
 .titulo p{
-
     width:300px;
-
+    max-width:90%; /* Para que no se salga */
+    margin:0 auto;
     color:#666;
-
-    font-size:18px;
-
+    font-size:17px;
     line-height:1.5;
-
 }
 
 /*====================================
@@ -89,17 +71,11 @@ margin-bottom:1px;
 =====================================*/
 
 .escenario{
-
     width:100%;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     margin-top:25px;
-
 }
 
 /*====================================
@@ -107,17 +83,12 @@ margin-bottom:1px;
 =====================================*/
 
 .abanico-container{
-
     position:relative;
-
-    width:340px;
-
+    width:92%; /* Ahora es % para que se adapte */
+    max-width:340px; /* Pero no pasa de 340px */
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
 }
 
 /*====================================
@@ -125,26 +96,19 @@ margin-bottom:1px;
 =====================================*/
 
 #abanico{
-
     width:100%;
-
+    height:auto; /* CLAVE: Para que no se deforme */
     display:block;
-
     cursor:pointer;
-
     user-select:none;
-
     -webkit-user-drag:none;
-
-    transition:
-        transform .25s ease;
-
+    transition: transform .25s ease;
+    position:relative;
+    z-index:2;
 }
 
 #abanico:active{
-
     transform:scale(.98);
-
 }
 
 /*====================================
@@ -152,27 +116,16 @@ margin-bottom:1px;
 =====================================*/
 
 #textoInvitacion{
-
     position:absolute;
-
     left:50%;
-
     top:34%;
-
     transform:translate(-50%,-50%);
-
-    width:48%;
-
+    width:50%;
     opacity:0;
-
     text-align:center;
-
     pointer-events:none;
-
-    transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
-
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    color:#c96b91;
 }
 
 /*====================================
@@ -180,15 +133,16 @@ margin-bottom:1px;
 =====================================*/
 
 #mensajeAbrir{
-
-    margin-top:-70px;
-
+    margin-top:15px; /* Le quité el -70px porque te lo tiraba arriba */
     color:#b96b89;
-
-    font-size:18px;
-
+    font-size:16px;
     transition:opacity 1s ease;
+    animation: parpadeo 1.5s infinite;
+}
 
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 /*====================================
@@ -196,88 +150,19 @@ margin-bottom:1px;
 =====================================*/
 
 .ocultar{
-
     opacity:0;
-
 }
 
 /*====================================
-      RESPONSIVE
+      PETALOS
 =====================================*/
 
-@media(max-width:430px){
-
-    .abanico-container{
-
-        width:92%;
-
-        transform:translateY(-110px);
-
-    }
-
-    .titulo h1{
-
-        font-size:42px;
-
-    }
-
-    .titulo p{
-
-        width:100%;
-
-        font-size:17px;
-
-    }
-
-    #textoInvitacion{
-
-        width:50%;
-
-        top:34%;
-
-    }
-
-    #textoInvitacion h2{
-
-        font-size:22px;
-
-    }
-
-    #textoInvitacion p{
-
-        font-size:14px;
-
-    }
-
-}
-/*=========================
-        PETALOS
-==========================*/
-
 #petalos{
-
     position:absolute;
-
     top:0;
-
     left:0;
-
     width:100%;
-
     height:100%;
-
     z-index:3;
-
     pointer-events:none;
-
-}
-
-/* el abanico queda debajo */
-
-#abanico{
-
-    position:relative;
-
-    z-index:2;
-
 }
