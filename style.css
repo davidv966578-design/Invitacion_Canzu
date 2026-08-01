@@ -1,3 +1,182 @@
+/*====================================
+            RESET
+=====================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/*====================================
+            BODY
+=====================================*/
+
+body{
+
+    background:linear-gradient(
+        to bottom,
+        #fffdfd,
+        #ffeef4
+    );
+
+    font-family:Georgia, serif;
+
+    overflow:hidden;
+
+}
+
+/*====================================
+            ESCENA
+=====================================*/
+
+.escena{
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+/*====================================
+        TEXTO INICIAL
+=====================================*/
+
+.titulo{
+
+    transition:opacity 1s ease;
+
+}
+
+.titulo h1{
+
+font-family:'Parisienne', serif;
+
+font-size:200px;
+
+color:#c96b91;
+
+font-weight:bold;
+
+margin-bottom:1px;
+
+}
+
+.titulo p{
+
+    width:300px;
+
+    color:#666;
+
+    font-size:18px;
+
+    line-height:1.5;
+
+}
+
+/*====================================
+            ESCENARIO
+=====================================*/
+
+.escenario{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:25px;
+
+}
+
+/*====================================
+        CONTENEDOR
+=====================================*/
+
+.abanico-container{
+
+    position:relative;
+
+    width:340px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/*====================================
+        ABANICO
+=====================================*/
+
+#abanico{
+
+    width:100%;
+
+    display:block;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+    transition:
+        transform .25s ease;
+
+}
+
+#abanico:active{
+
+    transform:scale(.98);
+
+}
+
+/*====================================
+        TEXTO ABANICO
+=====================================*/
+
+#textoInvitacion{
+
+    position:absolute;
+
+    left:50%;
+
+    top:34%;
+
+    transform:translate(-50%,-50%);
+
+    width:48%;
+
+    opacity:0;
+
+    text-align:center;
+
+    pointer-events:none;
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+}
+
+/*====================================
+        MENSAJE
 =====================================*/
 
 #mensajeAbrir{
