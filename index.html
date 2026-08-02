@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Canzu</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="fondo"></div>
+
+  <div class="escena">
+    <div class="capa-textos">
+      <div class="titulo">
+        <h1>Canzu</h1>
+        <p>Te invita a compartir un momento especial</p>
+      </div>
+      <p id="mensajeAbrir">Toca el Abanico para abrir la invitación</p>
+    </div>
+
+    <div class="abanico-container">
+      <canvas id="petalos"></canvas>
+      <img id="abanico" src="img/frame1.webp" alt="Abanico Sakura">
+    </div>
+  </div>
+
+  <audio id="musica" loop preload="auto">
+    <source src="audio/musica.mp3" type="audio/mpeg">
+  </audio>
+  <script src="script.js"></script>
+</body>
+</html>
