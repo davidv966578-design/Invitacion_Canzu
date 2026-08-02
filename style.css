@@ -1,168 +1,121 @@
-/*====================================
-            RESET
-=====================================*/
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/*====================================
-            BODY
-=====================================*/
-
-body{
-    background:linear-gradient(
-        to bottom,
-        #fffdfd,
-        #ffeef4
-    );
-    font-family:Georgia, serif;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+body {
+  font-family: Georgia, serif;
+  overflow: hidden;
+  background: #000;
 }
 
-/*====================================
-            ESCENA
-=====================================*/
-
-.escena{
-    width:100%;
-    max-width: 430px; /* CLAVE: Limita para que no se estire en PC/tablet */
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #ffeef4 0%, #ffb3d1 100%);
+  z-index: 0;
 }
 
-/*====================================
-        TITULO
-=====================================*/
-
-.titulo{
-    transition:opacity 1s ease;
+.escena {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.titulo h1{
-    font-family:'Parisienne', serif;
-    font-size:42px; /* Bajé el de 200px. 200px rompe en celu */
-    color:#c96b91;
-    font-weight:bold;
-    margin-bottom:1px;
+.abanico-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.titulo p{
-    width:300px;
-    max-width:90%; /* Para que no se salga */
-    margin:0 auto;
-    color:#666;
-    font-size:17px;
-    line-height:1.5;
+#abanico {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.2s ease;
 }
 
-/*====================================
-            ESCENARIO
-=====================================*/
-
-.escenario{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:25px;
+#abanico:active {
+  transform: scale(0.98);
 }
 
-/*====================================
-        CONTENEDOR
-=====================================*/
-
-.abanico-container{
-    position:relative;
-    width:92%; /* Ahora es % para que se adapte */
-    max-width:340px; /* Pero no pasa de 340px */
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.capa-textos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px 80px;
+  pointer-events: none;
+  z-index: 2;
 }
 
-/*====================================
-        ABANICO
-=====================================*/
-
-#abanico{
-    width:100%;
-    height:auto; /* CLAVE: Para que no se deforme */
-    display:block;
-    cursor:pointer;
-    user-select:none;
-    -webkit-user-drag:none;
-    transition: transform .25s ease;
-    position:relative;
-    z-index:2;
+.titulo {
+  transition: opacity 1s ease;
 }
 
-#abanico:active{
-    transform:scale(.98);
+.titulo h1 {
+  font-family: 'Parisienne', serif;
+  font-size: 64px;
+  color: #d46a92;
+  font-weight: bold;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.7);
 }
 
-/*====================================
-        TEXTO ABANICO
-=====================================*/
-
-#textoInvitacion{
-    position:absolute;
-    left:50%;
-    top:34%;
-    transform:translate(-50%,-50%);
-    width:50%;
-    opacity:0;
-    text-align:center;
-    pointer-events:none;
-    transition: opacity 1.2s ease, transform 1.2s ease;
-    color:#c96b91;
+.titulo p {
+  width: 90%;
+  margin: 10px auto 0;
+  color: #8a4a64;
+  font-size: 18px;
+  line-height: 1.5;
+  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.6);
 }
 
-/*====================================
-        MENSAJE
-=====================================*/
-
-#mensajeAbrir{
-    margin-top:15px; /* Le quité el -70px porque te lo tiraba arriba */
-    color:#b96b89;
-    font-size:16px;
-    transition:opacity 1s ease;
-    animation: parpadeo 1.5s infinite;
+#mensajeAbrir {
+  color: #c96b91;
+  font-size: 17px;
+  font-weight: bold;
+  transition: opacity 1s ease;
+  animation: parpadeo 1.5s infinite;
+  pointer-events: auto;
 }
 
 @keyframes parpadeo {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+ 0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
-/*====================================
-        OCULTAR
-=====================================*/
-
-.ocultar{
-    opacity:0;
+.ocultar {
+  opacity: 0!important;
 }
 
-/*====================================
-      PETALOS
-=====================================*/
-
-#petalos{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:3;
-    pointer-events:none;
+#petalos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
 }
